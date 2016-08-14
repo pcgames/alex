@@ -43,5 +43,11 @@ namespace snake
             if (o == Direction.DOWN)
                 y = y + offset;
         }
+
+        public void Clear()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(' ');
+        }
     }
 }
