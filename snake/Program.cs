@@ -29,10 +29,10 @@ namespace snake
             List<Point> tp = new List<Point>();
             tp.Add(p1);
             tp.Add(p2);*/
-            Horizontal_lines r = new Horizontal_lines(1,10,25);
-            Vertical_lines g = new Vertical_lines(1, 32, 14);
-            g.Draw();
-            r.Draw();
+            Point p = new Point(6, 7, '*');
+            Snake snake = new Snake(p, 3, Direction.UP);
+            snake.Draw();
+
             Console.ReadLine();
         }
     }
