@@ -16,5 +16,15 @@ namespace snake
             Console.SetCursorPosition(x, y);
             Console.WriteLine(s);
         }
+        public Point()
+        {
+            //Console.WriteLine("первый нах!");
+        }
+        public Point(int _x, int _y, char _s) 
+        {
+        x = _x;
+        y = _y;
+        s = _s;
+        }
     }
 }
