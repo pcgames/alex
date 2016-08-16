@@ -31,11 +31,19 @@ namespace snake
             List<Point> tp = new List<Point>();
             tp.Add(p1);
             tp.Add(p2);*/
+            Console.SetBufferSize(80, 45);
             Point p = new Point(6, 7, '*');
             Snake snake = new Snake(p, 3, Direction.RIGHT);
             snake.Draw();
+            Food F = new Food(80,45,'&');
+            Point food = new Point(F.FoodCreate());
+            
             while (true)
             {
+                if (snake.EatSnake(food))
+                {
+                    food = F.FoodCreate();
+                }
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
