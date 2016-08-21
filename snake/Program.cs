@@ -34,7 +34,7 @@ namespace snake
             Console.SetBufferSize(80, 25);
             Walls w = new Walls(80, 25);
             w.Draw();
-            Point p = new Point(1, 2, '*');
+            Point p = new Point(5, 2, '*');
             //Snake snake = new Snake(p, 3, Direction.RIGHT);
             Figure fs = new Snake(p, 3, Direction.RIGHT);//использовал полиморфизм т.к. змея тоже фигура,
             //snake.Draw();//НО теперь нельзя юзать все методы змейки можно только общие фигурные
