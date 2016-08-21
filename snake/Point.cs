@@ -49,5 +49,10 @@ namespace snake
             Console.SetCursorPosition(x, y);
             Console.WriteLine(' ');
         }
+
+        public bool Ishit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
     }
 }

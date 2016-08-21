@@ -31,25 +31,29 @@ namespace snake
             List<Point> tp = new List<Point>();
             tp.Add(p1);
             tp.Add(p2);*/
-            Console.SetBufferSize(80, 45);
+            Console.SetBufferSize(80, 25);
+            Walls w = new Walls(80, 25);
+            w.Draw();
             Point p = new Point(1, 2, '*');
             //Snake snake = new Snake(p, 3, Direction.RIGHT);
             Figure fs = new Snake(p, 3, Direction.RIGHT);//использовал полиморфизм т.к. змея тоже фигура,
             //snake.Draw();//НО теперь нельзя юзать все методы змейки можно только общие фигурные
             Snake snake = (Snake)fs;
-            Food F = new Food(80,45,'&');
+            Food F = new Food(80,25,'&');
             Point food = new Point(F.FoodCreate());
-            List<Figure> list = new List<Figure>();
-            Figure V = new Vertical_lines(0, 40, 3);//можно добавлять разные подтипы фигур в список и машина сама разберется где какой метод 
-            Figure H = new Horizontal_lines(0, 40, 1);//применить т.к. дро у разный классов реализовон по разному
+          //  List<Figure> list = new List<Figure>();
+          /*  Figure V = new Vertical_lines(0, 5, 3);//можно добавлять разные подтипы фигур в список и машина сама разберется где какой метод 
+            Figure H = new Horizontal_lines(0, 5, 1);//применить т.к. дро у разный классов реализовон по разному
             list.Add(V);
             list.Add(H);
             list.Add(fs);
             foreach (Figure f in list)
-                Draw(f);
+                Draw(f);*/
             
             while (true)
             {
+                if (snake.Headhitbody() || w.WallsHit(snake))
+                    break;
                 if (snake.EatSnake(food))
                 {
                     food = F.FoodCreate();
@@ -60,14 +64,15 @@ namespace snake
                     snake.DirectionMove(key);
                 }
                 snake.Move();
+               // w.Draw();
                 Thread.Sleep(100);
             }
            
 
         }
-        static void Draw(Figure f)
+       /* static void Draw(Figure f)
         {
             f.Draw();
-        }
+        }*/
     }
 }
